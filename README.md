@@ -12,7 +12,7 @@ An ESP32-based IoT project designed to monitor electrical energy consumption, en
 
 Watch the project demonstration on LinkedIn:
 
-**[View Project Demo on LinkedIn](PASTE_YOUR_LINKEDIN_VIDEO_URL_HERE)**
+**[View Project Demo on LinkedIn](https://www.linkedin.com/posts/bomman_iot-smarthome-energymonitoring-ugcPost-7438919994337300480-W59v/?highlightedUpdateUrn=urn%3Ali%3Aactivity%3A7438920074901659648&highlightedUpdateType=SOCIAL_SHARE&origin=SOCIAL_SHARE&utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEi4jwgBphgBbfVAa4hYV59VTQ1KOZiFI7U&utm_campaign=copy_link)**
 
 ## 🚀 Features
 

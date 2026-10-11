@@ -1,103 +1,99 @@
 # Smart Energy Monitoring System
 
-**Reconstructed documentation and starter firmware** for an ESP32-based IoT energy-monitoring and appliance-control project.
+An ESP32-based IoT project designed to monitor electrical energy consumption, enable remote appliance control, and support smarter energy management.
 
-## Achievement
-- **Reported award:** Second Prize
-- **Reported prize money:** ₹1,000
-- **Event:** 30-hour ECE Association hackathon
+## 🏆 Hackathon Achievement
 
-These achievement details were supplied by the project owner. Add event proof or photos if available.
+- **Event:** 30-Hour Hackathon
+- **Achievement:** Second Prize
+- **Prize Money:** ₹1,000
 
-## What is confirmed vs. what is still assumed
+## 🎥 Project Demonstration
 
-### Confirmed from the owner's recollection
-- ESP32 controller
+Watch the project demonstration on LinkedIn:
+
+**[View Project Demo on LinkedIn](PASTE_YOUR_LINKEDIN_VIDEO_URL_HERE)**
+
+## 🚀 Features
+
+- Real-time electrical parameter monitoring
+- IoT-based monitoring through the Blynk dashboard
+- Remote appliance control using a smartphone
+- Gesture-based appliance control
+- Vacation Mode for appliance management when occupants are away
+- Theft detection functionality during Vacation Mode
+
+*Note: Features should be verified against the actual prototype and implementation.*
+
+## 🛠️ Hardware Components
+
+- ESP32 development board
 - ACS712 current sensor
 - ZMPT101B voltage sensor
-- Blynk dashboard
 - Relay module
-- Project concept included energy monitoring and remote appliance control
+- Power supply and connecting wires
+- Electrical load for testing
 
-### Reconstructed / requires verification
-- GPIO assignments in the sample firmware
-- ACS712 module rating (sample assumes 20 A, 100 mV/A)
-- Voltage calibration factor
-- Relay active-LOW behavior
-- Exact Blynk datastream configuration
-- Gesture control, Vacation Mode, and theft detection implementation
-- Accuracy of energy measurements
+## 💻 Software and Technologies
 
-The original source files were unavailable when this repository was prepared. The firmware is a starting point, not a recovered copy of the original implementation.
-
-## Hardware list
-- ESP32 development board
-- ACS712 current sensor module (confirm 5 A / 20 A / 30 A variant)
-- ZMPT101B voltage sensor module
-- Relay module compatible with the chosen ESP32 logic interface
-- Appropriate isolated, rated power supply and protected enclosure
-- Test load and suitable reference instruments for calibration
-
-## Software
+- Embedded C/C++
 - Arduino IDE
-- ESP32 board support package
-- Blynk IoT library
-- `BlynkSimpleEsp32` library
+- ESP32
+- Blynk IoT Platform
+- Wi-Fi communication
 
-## Starter wiring (GPIO choices are assumptions)
-| Module signal | ESP32 pin | Notes |
-|---|---:|---|
-| ACS712 analog output | GPIO34 | ADC1 input-only; ensure output stays within ESP32's allowed input range |
-| ZMPT101B analog output | GPIO35 | ADC1 input-only; ensure output stays within ESP32's allowed input range |
-| Relay input | GPIO26 | Confirm relay logic and driver compatibility |
-| Sensor grounds | ESP32 GND | Only for low-voltage isolated sensor outputs; follow module documentation |
+## ⚙️ Working Principle
 
-**Do not connect mains wiring to the ESP32.** The ZMPT101B board may involve hazardous mains-side terminals. Use appropriate isolation, enclosures, fusing, clearances, and qualified supervision.
+The ACS712 current sensor and ZMPT101B voltage sensor provide electrical measurements to the ESP32. The controller processes the sensor readings and communicates with the Blynk IoT platform over Wi-Fi.
 
-## Blynk datastreams used by the sample
-Create these Virtual Pin datastreams in the Blynk template:
-- **V0**: voltage (Double)
-- **V1**: current (Double)
-- **V2**: apparent power (Double, VA)
-- **V3**: estimated accumulated apparent energy (Double, VAh)
-- **V4**: relay control (Integer 0/1, switch widget)
+Users can monitor the available measurements and control connected appliances remotely through the dashboard using a relay module.
 
-The code sends apparent power and a VAh estimate. It does **not** calculate certified real power or billing-grade kWh. True active power requires properly synchronized voltage/current sampling, calibration, and power-factor measurement.
+## 🏗️ System Architecture
 
-## Setup
-1. Install Arduino IDE and ESP32 board support.
-2. Install the Blynk library.
-3. Open `code/smart_energy_monitor.ino`.
-4. Replace Blynk and Wi-Fi placeholders locally. Do not publish credentials.
-5. Confirm your exact sensor module variants, relay polarity, and wiring before powering the system.
-6. Calibrate the voltage factor and current sensitivity against appropriate reference instruments using a safe test setup.
-7. Open Serial Monitor at 115200 baud.
-8. Configure Blynk Virtual Pin datastreams V0–V4 and matching widgets.
-9. Test only under qualified supervision and with a properly isolated, protected setup.
+```text
+ACS712 Current Sensor ──┐
+                        ├──> ESP32
+ZMPT101B Voltage Sensor ┘      │
+                               │ Wi-Fi
+                               ▼
+                         Blynk Dashboard
+                               │
+                         Remote Control
+                               │
+                               ▼
+                         Relay Module
+                               │
+                               ▼
+                         Electrical Load
+```
 
-## Calibration checklist
-- [ ] Confirm the ACS712 variant and sensitivity from its datasheet/module label.
-- [ ] Confirm the ZMPT101B output range never exceeds the ESP32 ADC input range.
-- [ ] Calibrate voltage against a suitable true-RMS meter.
-- [ ] Calibrate current against a suitable current reference at a known safe load.
-- [ ] Confirm relay ON/OFF polarity with the load disconnected first.
-- [ ] Validate readings over multiple loads; do not use this as a certified meter.
+## 📂 Project Structure
 
-## Repository structure
 ```text
 smart-energy-monitoring-system/
 ├── README.md
-├── .gitignore
 ├── code/
-│   ├── smart_energy_monitor.ino
-│   └── secrets.example.h
-├── circuit/
-├── images/
-└── docs/
+│   └── smart_energy_monitor.ino
 ```
 
-## Safety
-Mains electricity can cause fatal electric shock or fire. Never connect mains directly to ESP32 pins or a solderless breadboard. Do not handle exposed mains terminals while powered. Use correctly rated isolated modules, enclosure, fuse/protection, and qualified supervision. This prototype is educational and is not a certified energy meter or safety device.
+*Add the actual source code, circuit diagram, photographs, and report when available.*
 
-## License
-No license selected. Choose one only after deciding how others may reuse the work.
+## 🔮 Future Enhancements
+
+- Energy consumption history and analytics
+- Electricity bill estimation
+- Energy-saving recommendations
+- Improved dashboard visualization
+- Enhanced appliance monitoring and automation
+
+## ⚠️ Safety Notice
+
+Mains electricity can cause fatal electric shock or fire. Use properly isolated, rated sensor modules and relay hardware, suitable protection, and an enclosed setup under qualified supervision. This educational prototype is not a certified energy meter.
+
+## 📜 License
+
+A license will be added when the intended terms for reuse and distribution are decided.
+
+---
+
+**Developed as an IoT-based energy monitoring and appliance management project.**
